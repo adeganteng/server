@@ -19,8 +19,8 @@ app.use(
 );
 
 // use Routes
-app.use("/users", userRoutes);
-app.use("/tasks", taskRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/tasks", taskRoutes);
 
 app.get("/", (req, res) => {
   res.json({
