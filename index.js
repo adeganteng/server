@@ -12,15 +12,11 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 
 app.use(bodyParser.json());
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL,
-  })
-);
+app.use(cors("*"));
 
 // use Routes
-app.use("/api/users", userRoutes);
-app.use("/api/tasks", taskRoutes);
+app.use("/users", userRoutes);
+app.use("/tasks", taskRoutes);
 
 app.get("/", (req, res) => {
   res.json({
