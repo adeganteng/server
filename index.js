@@ -12,11 +12,15 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 
 app.use(bodyParser.json());
-app.use(cors("*"));
+app.use(
+  cors({
+    origin: "https://notesapp-jade.vercel.app",
+  })
+);
 
 // use Routes
-app.use("/users", userRoutes);
-app.use("/tasks", taskRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/tasks", taskRoutes);
 
 app.get("/", (req, res) => {
   res.json({
